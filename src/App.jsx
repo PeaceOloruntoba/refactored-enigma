@@ -1,6 +1,8 @@
 import React, { Suspense } from "react";
-import { Route, Router, Routes } from "react-router";
+import { BrowserRouter as Router, Route, Routes } from "react-router";
 import { Toaster } from "sonner";
+import RootLayout from "./layouts/RootLayout";
+import Home from "./pages/Home";
 
 export default function App() {
   return (
@@ -15,7 +17,9 @@ export default function App() {
       >
         <Router>
           <Routes>
-            <Route></Route>
+            <Route path="/" element={<RootLayout />}>
+              <Route path="" element={<Home />} />
+            </Route>
           </Routes>
         </Router>
       </Suspense>
